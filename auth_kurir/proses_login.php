@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 $username = $_POST['username'];
 $password = md5($_POST['password']);

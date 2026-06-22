@@ -1,5 +1,5 @@
 <?php
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 if(isset($_POST['simpan'])){
     $nama = $_POST['nama'];

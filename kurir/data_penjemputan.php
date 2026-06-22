@@ -1,6 +1,6 @@
 <?php
 
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 $data = mysqli_query(
     $conn,

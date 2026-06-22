@@ -1,5 +1,5 @@
 <?php
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 $id = $_GET['id'];
 $data = mysqli_query($conn, "SELECT * FROM pengantaran WHERE id='$id'");

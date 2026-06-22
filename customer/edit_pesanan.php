@@ -39,7 +39,7 @@ if(isset($_POST['update'])){
 
     <title>Edit Pesanan - Whispy Wash</title>
 
-    <link rel="stylesheet" href="../assets/style.css">
+    <link rel="stylesheet" href="../assets_kurir/style.css">
 
 </head>
 

@@ -1,5 +1,5 @@
 <?php
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 $id = $_GET['id'];
 

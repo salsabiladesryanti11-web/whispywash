@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config/koneksi.php";
+include "../config_kurir/koneksi.php";
 
 $penjemputan = mysqli_num_rows(
     mysqli_query($conn, "SELECT * FROM penjemputan")
@@ -232,7 +232,7 @@ body{
     <div class="user">
         <span>Profil</span>
 
-        <a href="../auth/logout.php" class="logout-btn">
+        <a href="../auth_kurir/logout.php" class="logout-btn">
             Logout
         </a>
     </div>
