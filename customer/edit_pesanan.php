@@ -28,7 +28,7 @@ if(isset($_POST['update'])){
         WHERE id='$id'
     ");
 
-    header("Location: pesanan.php");
+    header("Location: pesanan_crud.php");
 }
 
 ?>
