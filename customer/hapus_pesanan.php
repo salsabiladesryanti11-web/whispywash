@@ -10,6 +10,6 @@ mysqli_query(
      WHERE id='$id'"
 );
 
-header("Location: pesanan.php");
+header("Location: pesanan_crud.php");
 
 ?>
