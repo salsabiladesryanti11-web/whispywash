@@ -61,7 +61,7 @@ if(!isset($_SESSION['id_user'])){
 
         <br>
 
-        <a href="pesanan.php">
+        <a href="pesanan_crud.php">
             <button class="btn">
                 Jadwalkan Pengambilan Sekarang
             </button>
