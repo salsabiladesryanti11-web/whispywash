@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend API Pesanan</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input, textarea, button{
+            margin: 5px 0;
+            padding: 8px;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+        }
+
+        th, td{
+            padding: 8px;
+            text-align: left;
+        }
+
+        th{
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Frontend API Pesanan Laundry</h2>
+
+    <button onclick="getPesanan()">Tampilkan Data Pesanan</button>
+
+    <h3>Tambah Pesanan</h3>
+
+    <input type="number" id="id_user" placeholder="ID User" required>
+    <br>
+
+    <input type="date" id="tanggal_pickup" required>
+    <br>
+
+    <input type="time" id="waktu_pickup" required>
+    <br>
+
+    <input type="text" id="alamat" placeholder="Alamat" required>
+    <br>
+
+    <textarea id="instruksi" placeholder="Instruksi"></textarea>
+    <br>
+
+    <button onclick="tambahPesanan()">Simpan Pesanan</button>
+
+    <div id="hasil"></div>
+
+    <script>
+
+        const apiUrl = "api/pesanan.php";
+
+        function getPesanan() {
+
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+
+                let html = `
+                    <h3>Daftar Pesanan</h3>
+
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>ID User</th>
+                            <th>Tanggal Pickup</th>
+                            <th>Waktu Pickup</th>
+                            <th>Alamat</th>
+                            <th>Instruksi</th>
+                            <th>Status</th>
+                        </tr>
+                `;
+
+                data.forEach(item => {
+                    html += `
+                        <tr>
+                            <td>${item.id}</td>
+                            <td>${item.id_user}</td>
+                            <td>${item.tanggal_pickup}</td>
+                            <td>${item.waktu_pickup}</td>
+                            <td>${item.alamat}</td>
+                            <td>${item.instruksi}</td>
+                            <td>${item.status}</td>
+                        </tr>
+                    `;
+                });
+
+                html += `</table>`;
+
+                document.getElementById("hasil").innerHTML = html;
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Gagal mengambil data");
+            });
+        }
+
+        function tambahPesanan() {
+
+            const data = {
+                id_user: document.getElementById("id_user").value,
+                tanggal_pickup: document.getElementById("tanggal_pickup").value,
+                waktu_pickup: document.getElementById("waktu_pickup").value,
+                alamat: document.getElementById("alamat").value,
+                instruksi: document.getElementById("instruksi").value
+            };
+
+            fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+
+                alert(result.message);
+
+                document.getElementById("id_user").value = "";
+                document.getElementById("tanggal_pickup").value = "";
+                document.getElementById("waktu_pickup").value = "";
+                document.getElementById("alamat").value = "";
+                document.getElementById("instruksi").value = "";
+
+                getPesanan();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Gagal menambahkan pesanan");
+            });
+        }
+
+    </script>
+
+</body>
+</html>
