@@ -24,7 +24,7 @@ if(isset($_POST['simpan'])){
         ('$id_user','$tanggal','$waktu','$alamat','$instruksi')
     ");
 
-    header("Location: pesanan.php");
+    header("Location: pesanan_crud.php");
 }
 
 ?>
