@@ -29,7 +29,7 @@ if(!isset($_SESSION['id_user'])){
     <div class="menu">
         <a href="home.php">Home</a>
         <a href="pricing.php">Pricing</a>
-        <a href="pesanan.php">Schedule Pickup</a>
+        <a href="pesanan_crud.php">Schedule Pickup</a>
         <a href="profile.php">Profile</a>
         <a href="../auth/logout.php">Logout</a>
     </div>
