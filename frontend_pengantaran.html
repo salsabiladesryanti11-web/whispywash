@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Frontend API Pengantaran</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:40px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+h1{
+    color:#243447;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#243447;
+    color:white;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ddd;
+    text-align:left;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Data Pengantaran (Frontend + API)</h1>
+
+    <div class="card">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Alamat</th>
+                    <th>Tanggal Antar</th>
+                </tr>
+            </thead>
+
+            <tbody id="dataPengantaran">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+fetch('api_kurir/pengantaran.php')
+
+.then(response => response.json())
+
+.then(data => {
+
+    let html = '';
+
+    data.forEach(item => {
+
+        html += `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.nama_pelanggan}</td>
+                <td>${item.alamat}</td>
+                <td>${item.tanggal_antar}</td>
+            </tr>
+        `;
+
+    });
+
+    document.getElementById('dataPengantaran').innerHTML = html;
+
+})
+
+.catch(error => {
+
+    console.log(error);
+
+});
+
+</script>
+
+</body>
+</html>
