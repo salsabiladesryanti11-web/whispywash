@@ -2,11 +2,11 @@
 session_start();
 
 if(!isset($_SESSION['owner'])){
-    header("Location: ../auth/login.php");
+    header("Location: ../auth_owner/login.php");
     exit();
 }
 
-include("../Config/koneksi.php");
+include("../Config_owner/koneksi.php");
 
 $totalUser = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM users"));
 $totalOrder = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM orders"));
