@@ -8,7 +8,7 @@ if(isset($_POST['simpan'])){
     $password = $_POST['password'];
 
     mysqli_query($conn,"
-    INSERT INTO users (nama_lengkap, email, password)
+    INSERT INTO users (nama, email, password)
     VALUES ('$nama', '$email', '$password')
     ");
 

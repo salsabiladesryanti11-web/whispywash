@@ -18,7 +18,7 @@ if(isset($_POST['update'])){
     mysqli_query($conn,"
     UPDATE users
     SET
-    nama_lengkap='$nama',
+    nama='$nama',
     email='$email'
     WHERE id='$id'
     ");
