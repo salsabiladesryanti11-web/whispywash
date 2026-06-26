@@ -1,6 +1,6 @@
 <?php
 
-include("../Config/koneksi.php");
+include("../Config_owner/koneksi.php");
 
 header("Content-Type: application/json");
 
