@@ -6,7 +6,7 @@ include("../Config_owner/koneksi.php");
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$query = mysqli_query($conn,"`
+$query = mysqli_query($conn,"
 SELECT * FROM users
 WHERE email='$email'
 AND password='$password'
