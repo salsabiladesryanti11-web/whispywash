@@ -4,7 +4,7 @@ $conn = mysqli_connect(
     "localhost",
     "root",
     "",
-    "whispywash"
+    "db_whispywash"
 );
 
 if (!$conn) {

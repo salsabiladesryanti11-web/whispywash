@@ -19,7 +19,7 @@ if(mysqli_num_rows($query) > 0){
     $_SESSION['owner'] = true;
     $_SESSION['nama'] = $data['nama_lengkap'];
 
-    header("Location: ../owner/dashboard.php");
+    header("Location: ../Owner_dashboard/dashboard.php");
     exit();
 
 }else{
